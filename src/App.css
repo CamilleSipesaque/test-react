@@ -1,11 +1,14 @@
+@import url('https://fonts.google.com/specimen/Nunito');
+
 :root {
   display: flex;
   place-items: center;
 }
 
 body {
-  display: flex;
+  /* display: flex;
   place-items: center;
-  justify-content: center;
+  justify-content: center; */
   width: 100%;
+  font-family: 'Nunito', sans-serif;
 }
