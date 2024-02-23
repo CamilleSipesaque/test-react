@@ -72,7 +72,16 @@
                 }
             }
         }
-
+        .loading{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 55vh;
+            img{
+                width: 50px;
+                object-fit: cover;
+            }
+        }
         .content-stars-wars-gride {
             padding: 15px 0;
             display: grid;
@@ -92,7 +101,7 @@
                 .title{
                     p{
                         text-decoration: underline;
-                        color: white;
+                        color: white !important;
                     }
                 }
                 .text{
@@ -110,6 +119,7 @@
             display: flex;
             justify-content: flex-end;
             padding: 10px 0;
+            gap: 10px;
             .button{
                 cursor: pointer;
                 display: flex;
