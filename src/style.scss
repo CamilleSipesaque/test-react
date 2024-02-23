@@ -1,8 +1,12 @@
 @import './index.css';
+// Importation du fichier CSS principal
 
+// Classe principale pour le conteneur de l'application
 .container {
     max-width: 1100px;
     margin: auto;
+
+    // Styles pour l'en-tête
     header {
         display: flex;
         flex-direction: column;
@@ -21,25 +25,28 @@
             color: gray;
         }
     }
-
+    
+    // Styles pour la zone de contenu
     .content-stars-wars {
-   
+
         padding: 15px 0;
         padding-bottom: 15px;
-        box-shadow: 0px -10px 10px -5px rgba(0, 0, 0, 0.5); /* ombre portée noire sur le bord supérieur */
+        box-shadow: 0px -10px 10px -5px rgba(0, 0, 0, 0.5);
+        /* ombre portée noire sur le bord supérieur */
 
         .content-stars-wars-input {
             display: flex;
             align-items: center;
             gap: 10px;
             padding: 10px 0;
-            .content-stars-wars-item:first-child{
-                span{
+
+            .content-stars-wars-item:first-child {
+                span {
                     font-weight: bold;
-                    
+
                 }
             }
-           
+
             .content-stars-wars-item:nth-child(2) {
                 input {
                     height: 35px;
@@ -47,8 +54,8 @@
                     background: white;
                     width: 240px;
                     color: black;
-                    padding:  0 10px;
-                    border-radius: 2px; 
+                    padding: 0 10px;
+                    border-radius: 2px;
                 }
             }
 
@@ -65,23 +72,27 @@
                 img {
                     width: 15px;
                     object-fit: cover;
-                  
+
                 }
-                svg{
+
+                svg {
                     fill: red;
                 }
             }
         }
-        .loading{
+
+        .loading {
             display: flex;
             align-items: center;
             justify-content: center;
             height: 55vh;
-            img{
+
+            img {
                 width: 50px;
                 object-fit: cover;
             }
         }
+
         .content-stars-wars-gride {
             padding: 15px 0;
             display: grid;
@@ -89,38 +100,47 @@
             grid-template-columns:
                 repeat(auto-fit,
                     minmax(min(200px, 100%), 1fr));
-                    gap: 15px;
+            gap: 15px;
+
+
+
             .content-stars-wars-gird-item {
-               p{
-                margin: 0;
-               }
-         
+                p {
+                    margin: 0;
+                }
+
                 border: 1px solid rgba(128, 128, 128, 0.18);
                 border-radius: 5px;
                 padding: 15px;
-                .title{
-                    p{
+                width: 175px;
+
+                .title {
+                    p {
                         text-decoration: underline;
                         color: white !important;
                     }
                 }
-                .text{
+
+                .text {
                     display: flex;
                     flex-direction: column;
                     gap: 2px;
-                    p{
+
+                    p {
                         color: gray;
                         font-size: 14px;
                     }
                 }
             }
         }
-        .footer-button{
+
+        .footer-button {
             display: flex;
             justify-content: flex-end;
             padding: 10px 0;
-            gap: 10px;
-            .button{
+            gap: 5px;
+
+            .button {
                 cursor: pointer;
                 display: flex;
                 justify-content: center;
