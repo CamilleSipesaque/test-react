@@ -93,8 +93,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 55vh;
-
+            height: 50vh;
             img {
                 width: 50px;
                 object-fit: cover;
@@ -102,7 +101,7 @@
         }
 
         .content-stars-wars-gride {
-            padding: 15px 0;
+            padding: 10px 0;
             display: grid;
             height: auto;
             grid-template-columns:
@@ -147,7 +146,7 @@
             justify-content: flex-end;
             padding: 10px 0;
             gap: 5px;
-
+            opacity: 1;
             .button {
                 cursor: pointer;
                 display: flex;
@@ -158,14 +157,17 @@
                 width: 100px;
                 border-radius: 5px;
             }
+            &.hide{
+                opacity: 0;
+            }
         }
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
 
     .content-stars-wars-input{
         flex-direction: column;
-        align-items: self-start;
+        align-items: start !important;
     }
 }

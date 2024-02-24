@@ -138,7 +138,7 @@ function App() {
           </div>
         )}
         {/* Pagination */}
-        <div className="footer-button">
+        <div className={`footer-button${loading ? ' hide':''}`}>
           <PaginationButton
             buttonText="Précédent"
             onClickHandler={handlePreviousPage}
