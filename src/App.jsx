@@ -100,17 +100,17 @@ function App() {
           </div>
 
 
-        <div className='content-stars-wars-search'>
+          <div className='content-stars-wars-search'>
 
-          <div className="content-stars-wars-item">
-            <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
+            <div className="content-stars-wars-item">
+              <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
+            </div>
+            <div className="content-stars-wars-item" onClick={handleOnSubmit}>
+              <img src="/svg/magnifying-glass.svg" alt="recherche" />
+            </div>
           </div>
-          <div className="content-stars-wars-item" onClick={handleOnSubmit}>
-            <img src="/svg/magnifying-glass.svg" alt="recherche" />
-          </div>
+
         </div>
-
-      </div>
         {/* Affichage des données ou du chargement */}
         {loading ? (
           <div className="loading">
@@ -124,20 +124,20 @@ function App() {
                   <Item data={result} key={i} />
                 ))
               ) : (
-                resultSearch.length ===  0 ? (
+                resultSearch.length === 0 ? (
                   <div className=''>
                     <p>Aucune personnage</p>
                   </div>
                 ) : (
                   resultSearch.map((result, i) => (
                     <Item data={result} key={i} />)
-                   ))
+                  ))
               )
             }
           </div>
         )}
         {/* Pagination */}
-        <div className={`footer-button${loading ? ' hide':''}`}>
+        <div className={`footer-button${loading ? ' hide' : ''}`}>
           <PaginationButton
             buttonText="Précédent"
             onClickHandler={handlePreviousPage}
@@ -158,14 +158,19 @@ export default App;
 
 // Composant pour afficher les détails d'un personnage
 const Item = ({ data }) => {
+  const heightInCentimeters = data.height;
+  const meters = Math.floor(heightInCentimeters / 100);
+  const centimeters = heightInCentimeters % 100;
+
+
   return (
     <div className="content-stars-wars-gird-item">
       <div className="title">
         <p>{data.name}</p>
       </div>
       <div className="text">
-        <p>Taille : {data.height}</p>
-        <p>Poid : {data.mass}</p>
+      <p>Taille : {meters === 0 ? `${centimeters}cm` : `${meters}m${centimeters}`}</p>
+        <p>Poid : {data.mass}Kg</p>
         <p>Cheveux : {data.hair_color}</p>
         <p>Yeux : {data.eye_color}</p>
         <p>Genre : {data.gender}</p>
