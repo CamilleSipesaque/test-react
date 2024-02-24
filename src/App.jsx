@@ -119,20 +119,22 @@ function App() {
         ) : (
           <div className='content-stars-wars-gride'>
             {
-              isSearching === false ? (
-                dataStarsWars.map((result, i) => (
-                  <Item data={result} key={i} />
-                ))
-              ) : (
-                resultSearch.length === 0 ? (
-                  <div className=''>
-                    <p>Aucune personnage</p>
-                  </div>
-                ) : (
-                  resultSearch.map((result, i) => (
-                    <Item data={result} key={i} />)
+              isSearching ?
+                (
+                  resultSearch.length === 0 ? (
+                    <div className=''>
+                      <p>Aucune personnage</p>
+                    </div>
+                  ):(
+                    resultSearch.map((result, i) => (
+                      <Item data={result} key={i} />)
+                    ))
+                )
+                :(
+                  dataStarsWars.map((result, i) => (
+                    <Item data={result} key={i} />
                   ))
-              )
+                )
             }
           </div>
         )}
@@ -162,15 +164,14 @@ const Item = ({ data }) => {
   const meters = Math.floor(heightInCentimeters / 100);
   const centimeters = heightInCentimeters % 100;
 
-
   return (
     <div className="content-stars-wars-gird-item">
       <div className="title">
         <p>{data.name}</p>
       </div>
       <div className="text">
-      <p>Taille : {meters === 0 ? `${centimeters} cm` : `${meters}m${centimeters}`}</p>
-        <p>Poid : {data.mass ==='unknown'?'unknown':`${data.mass} Kg` }</p>
+        <p>Taille : {meters ? `${meters}m${centimeters}` : `${centimeters} cm`}</p>
+        <p>Poid : {data.mass === 'unknown' ? 'unknown' : `${data.mass} Kg`}</p>
         <p>Cheveux : {data.hair_color}</p>
         <p>Yeux : {data.eye_color}</p>
         <p>Genre : {data.gender}</p>
