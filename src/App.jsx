@@ -93,16 +93,25 @@ function App() {
       {/* Zone de recherche */}
       <div className="content-stars-wars">
         <div className="content-stars-wars-input">
+
           <div className="content-stars-wars-item">
             <span>Recherche un personnage :</span>
           </div>
+
+
+        <div className='content-stars-wars-search'>
+
           <div className="content-stars-wars-item">
             <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
           </div>
+
           <div className="content-stars-wars-item" onClick={handleOnSubmit}>
             <img src="/svg/magnifying-glass.svg" alt="recherche" />
           </div>
+
         </div>
+
+      </div>
         {/* Affichage des données ou du chargement */}
         {loading ? (
           <div className="loading">

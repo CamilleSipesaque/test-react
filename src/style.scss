@@ -41,45 +41,52 @@
             gap: 10px;
             padding: 10px 0;
 
-            .content-stars-wars-item:first-child {
+            .content-stars-wars-item {
                 span {
                     font-weight: bold;
 
                 }
             }
 
-            .content-stars-wars-item:nth-child(2) {
-                input {
-                    height: 35px;
-                    border: none;
-                    background: white;
-                    width: 240px;
-                    color: black;
-                    padding: 0 10px;
-                    border-radius: 2px;
-                }
-            }
-
-            .content-stars-wars-item:nth-child(3) {
+            .content-stars-wars-search {
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                border: 1px solid white;
-                height: 35px;
-                width: 30px;
-                border-radius: 5px;
-                cursor: pointer;
-
-                img {
-                    width: 15px;
-                    object-fit: cover;
-
+                gap: 10px;
+                .content-stars-wars-item:first-child {
+                   
+                    input {
+                        height: 35px;
+                        border: none;
+                        background: white;
+                        width: 240px;
+                        color: black;
+                        padding: 0 10px;
+                        border-radius: 2px;
+                    }
                 }
 
-                svg {
-                    fill: red;
+                .content-stars-wars-item:nth-child(2) {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid white;
+                    height: 35px;
+                    width: 30px;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    img {
+                        width: 15px;
+                        object-fit: cover;
+
+                    }
+
+                    svg {
+                        fill: red;
+                    }
                 }
             }
+
         }
 
         .loading {
@@ -153,5 +160,12 @@
             }
         }
     }
+}
 
+@media (max-width: 480px) {
+
+    .content-stars-wars-input{
+        flex-direction: column;
+        align-items: self-start;
+    }
 }
