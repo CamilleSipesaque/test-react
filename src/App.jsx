@@ -90,6 +90,7 @@ function App() {
           <p>Vous pouvez consulter  ici l'ensemble des personnages de l'univers Stars Wars</p>
         </div>
       </header>
+
       {/* Zone de recherche */}
       <div className="content-stars-wars">
         <div className="content-stars-wars-input">
@@ -104,11 +105,9 @@ function App() {
           <div className="content-stars-wars-item">
             <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
           </div>
-
           <div className="content-stars-wars-item" onClick={handleOnSubmit}>
             <img src="/svg/magnifying-glass.svg" alt="recherche" />
           </div>
-
         </div>
 
       </div>
