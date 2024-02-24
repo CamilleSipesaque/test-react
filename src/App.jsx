@@ -169,8 +169,8 @@ const Item = ({ data }) => {
         <p>{data.name}</p>
       </div>
       <div className="text">
-      <p>Taille : {meters === 0 ? `${centimeters}cm` : `${meters}m${centimeters}`}</p>
-        <p>Poid : {data.mass}Kg</p>
+      <p>Taille : {meters === 0 ? `${centimeters} cm` : `${meters}m${centimeters}`}</p>
+        <p>Poid : {data.mass ==='unknown'?'unknown':`${data.mass} Kg` }</p>
         <p>Cheveux : {data.hair_color}</p>
         <p>Yeux : {data.eye_color}</p>
         <p>Genre : {data.gender}</p>
