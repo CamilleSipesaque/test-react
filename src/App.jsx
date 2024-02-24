@@ -58,6 +58,7 @@ function App() {
         setLoading(false) // Mettre à jour l'état de chargement
         setNextPage(data.next); // Mettre à jour l'URL de la page suivante
         setPreviousPage(data.previous); // Mettre à jour l'URL de la page précédente
+        setSearch('')
       }
     } catch (error) {
       console.error(error) // Afficher l'erreur en cas de problème
