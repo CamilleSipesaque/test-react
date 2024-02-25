@@ -103,7 +103,7 @@ function App() {
           <div className='content-stars-wars-search'>
 
             <div className="content-stars-wars-item">
-              <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
+              <input type="text" value={search}  onChange={(e) => setSearch(e.target.value)} />
             </div>
             <div className="content-stars-wars-item" onClick={handleOnSubmit}>
               <img src="/svg/magnifying-glass.svg" alt="recherche" />
