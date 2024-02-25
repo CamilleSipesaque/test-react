@@ -184,9 +184,9 @@ const Item = ({ data }) => {
 const PaginationButton = ({ buttonText, onClickHandler, condition }) => {
   return (
     condition && (
-      <div className="button" onClick={onClickHandler}>
+      <button className="button" onClick={onClickHandler}>
         <span>{buttonText}</span>
-      </div>
+      </button>
     )
   );
 };

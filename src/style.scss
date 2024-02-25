@@ -142,6 +142,7 @@
             padding: 10px 0;
             gap: 5px;
             opacity: 1;
+            
             .button {
                 cursor: pointer;
                 display: flex;
@@ -151,6 +152,7 @@
                 height: 45px;
                 width: 100px;
                 border-radius: 5px;
+                background: none;
             }
             &.hide{
                 opacity: 0;
