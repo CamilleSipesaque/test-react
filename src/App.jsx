@@ -84,7 +84,7 @@ function App() {
       {/* En-tête avec logo et titre */}
       <header>
         <div className="svg-stars-wars">
-          <img src="/svg/Star_Wars.svg" alt="Star Wars" />
+          <img src="/svg/Star_Wars.svg" alt="StarWars" />
         </div>
         <div className="svg-stars-wars-title">
           <p>Vous pouvez consulter  ici l'ensemble des personnages de l'univers Stars Wars</p>
@@ -106,7 +106,7 @@ function App() {
               <input type="text" value={search}  onChange={(e) => setSearch(e.target.value)} />
             </div>
             <button className="content-stars-wars-item" onClick={handleOnSubmit}>
-              <img src="/svg/magnifying-glass.svg" alt="recherche" />
+              <img src="/svg/magnifying-glass.svg" alt="magnifying-glass" />
             </button>
           </div>
 
@@ -114,7 +114,7 @@ function App() {
         {/* Affichage des données ou du chargement */}
         {loading ? (
           <div className="loading">
-            <img src="/svg/ball-triangle.svg" alt="recherche" />
+            <img src="/svg/ball-triangle.svg" alt="ball-triangle" />
           </div>
         ) : (
           <div className='content-stars-wars-gride'>
