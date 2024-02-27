@@ -2,13 +2,13 @@
 import './App.css';
 import './style.scss';
 import { useState, useEffect } from 'react';
-
+import Item from './Compoment/Item/Item';
+import PaginationButton from './Compoment/PaginationButton/PaginationButton';
 function App() {
   // Hooks pour gérer l'état de la recherche, les résultats de la recherche, le chargement, les données de Star Wars, l'état de recherche, et la pagination
   const [search, setSearch] = useState(''); // État pour la recherche
-  const [resultSearch, setResultSearch] = useState([]); // État pour les résultats de la recherche
   const [loading, setLoading] = useState(true); // État pour le chargement des données
-  const [dataStarsWars, setDataStarsWars] = useState([]); // État pour stocker les données de Star Wars
+  const [data, setData] = useState([]); // État pour stocker les données de Star Wars
   const [isSearching, setIsSearching] = useState(false); // État pour indiquer si une recherche est en cours
   const [nextPage, setNextPage] = useState(null); // État pour la pagination suivante
   const [previousPage, setPreviousPage] = useState(null); // État pour la pagination précédente
@@ -30,7 +30,7 @@ function App() {
       });
       if (response.ok) {
         const data = await response.json();
-        setDataStarsWars(data.results); // Mettre à jour les données de Star Wars
+        setData(data.results); // Mettre à jour les données de Star Wars
         setNextPage(data.next); // Mettre à jour l'URL de la page suivante
         setPreviousPage(data.previous); // Mettre à jour l'URL de la page précédente
         setLoading(false); // Mettre à jour l'état de chargement
@@ -53,7 +53,7 @@ function App() {
       });
       if (reponse.ok) {
         const data = await reponse.json()
-        setResultSearch(data.results) // Mettre à jour les résultats de la recherche
+        setData(data.results) // Mettre à jour les résultats de la recherche
         setIsSearching(true) // Indiquer qu'une recherche est en cours
         setLoading(false) // Mettre à jour l'état de chargement
         setNextPage(data.next); // Mettre à jour l'URL de la page suivante
@@ -94,16 +94,12 @@ function App() {
       {/* Zone de recherche */}
       <div className="content-stars-wars">
         <div className="content-stars-wars-input">
-
           <div className="content-stars-wars-item">
             <span>Recherche un personnage :</span>
           </div>
-
-
           <div className='content-stars-wars-search'>
-
             <div className="content-stars-wars-item">
-              <input type="text" value={search}  onChange={(e) => setSearch(e.target.value)} />
+              <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
             </div>
             <button className="content-stars-wars-item" onClick={handleOnSubmit}>
               <img src="/svg/magnifying-glass.svg" alt="magnifying-glass" />
@@ -121,36 +117,40 @@ function App() {
             {
               isSearching ?
                 (
-                  resultSearch.length === 0 ? (
+                  data.length === 0 ? (
                     <div className=''>
                       <p>Aucune personnage</p>
                     </div>
-                  ):(
-                    resultSearch.map((result, i) => (
-                      <Item data={result} key={i} />)
+                  ) : (
+                    data.map((result) => (
+                      <Item data={result} key={result.url} />)
                     ))
                 )
-                :(
-                  dataStarsWars.map((result, i) => (
-                    <Item data={result} key={i} />
+                : (
+                  data.map((result) => (
+                    <Item data={result} key={result.url} />
                   ))
                 )
             }
           </div>
         )}
         {/* Pagination */}
-        <div className={`footer-button${loading ? ' hide' : ''}`}>
-          <PaginationButton
-            buttonText="Précédent"
-            onClickHandler={handlePreviousPage}
-            condition={previousPage}
-          />
-          <PaginationButton
-            buttonText="Suivant"
-            onClickHandler={handleNextPage}
-            condition={nextPage}
-          />
-        </div>
+        {!loading && (
+          <div className="footer-button">
+            {previousPage && (
+              <PaginationButton
+                buttonText="Précédent"
+                onClickHandler={handlePreviousPage}
+              />
+            )}
+              {nextPage && (
+              <PaginationButton
+                buttonText="Suivant"
+                onClickHandler={handleNextPage}
+              />
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -158,35 +158,3 @@ function App() {
 
 export default App;
 
-// Composant pour afficher les détails d'un personnage
-const Item = ({ data }) => {
-  const heightInCentimeters = data.height;
-  const meters = Math.floor(heightInCentimeters / 100);
-  const centimeters = heightInCentimeters % 100;
-
-  return (
-    <div className="content-stars-wars-gird-item">
-      <div className="title">
-        <p>{data.name}</p>
-      </div>
-      <div className="text">
-        <p>Taille : {meters ? `${meters}m${centimeters}` : `${centimeters} cm`}</p>
-        <p>Poid : {data.mass === 'unknown' ? 'unknown' : `${data.mass} Kg`}</p>
-        <p>Cheveux : {data.hair_color}</p>
-        <p>Yeux : {data.eye_color}</p>
-        <p>Genre : {data.gender}</p>
-      </div>
-    </div>
-  );
-};
-
-// Composant pour les boutons de pagination
-const PaginationButton = ({ buttonText, onClickHandler, condition }) => {
-  return (
-    condition && (
-      <button className="button" onClick={onClickHandler}>
-        <span>{buttonText}</span>
-      </button>
-    )
-  );
-};
