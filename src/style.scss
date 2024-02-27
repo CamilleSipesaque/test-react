@@ -13,14 +13,12 @@
         justify-content: center;
         height: 140px;
         padding: 5px 0;
-
         .svg-stars-wars {
             img {
                 width: 150px;
                 object-fit: cover;
             }
         }
-
         .svg-stars-wars-title {
             color: gray;
         }
@@ -39,7 +37,6 @@
             align-items: center;
             gap: 10px;
             padding: 10px 0;
-
             .content-stars-wars-item {
                 span {
                     font-weight: bold;
@@ -79,7 +76,6 @@
                     }
                 }
             }
-
         }
 
         .loading {
@@ -87,13 +83,11 @@
             align-items: center;
             justify-content: center;
             height: 50vh;
-
             img {
                 width: 50px;
                 object-fit: cover;
             }
         }
-
         .content-stars-wars-gride {
             padding: 10px 0;
             display: grid;
@@ -103,7 +97,6 @@
             minmax(min(200px, 100%), 1fr));
             gap: 15px;
         }
-
         .footer-button {
             display: flex;
             justify-content: flex-end;
